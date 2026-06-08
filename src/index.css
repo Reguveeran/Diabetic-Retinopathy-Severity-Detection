@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #0a0e1c;
+  --bg-card: #121828;
+  --bg-card-hover: #161d2f;
+  --bg-input: #ffffff;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #8c9bba;
+  --text-muted: #5e6c8e;
+  
+  --accent-blue: #5b79ff;
+  --accent-cyan: #0df3ff;
+  --accent-green: #0cf574;
+  
+  --border-color: #232c45;
+  --border-hover: #37466c;
+  
+  --glass-bg: rgba(18, 24, 40, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  background-image: radial-gradient(circle at top right, rgba(91, 121, 255, 0.1), transparent 40%),
+                    radial-gradient(circle at bottom left, rgba(13, 243, 255, 0.05), transparent 40%);
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-cyan);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+input {
+  font-family: inherit;
+  outline: none;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
