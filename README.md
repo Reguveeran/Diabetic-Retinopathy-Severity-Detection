@@ -26,6 +26,7 @@ In this project, I designed and built the end-to-end pipeline spanning the image
 ## 📋 Table of Contents
 - [Overview](#-overview)
 - [System Architecture](#-system-architecture)
+- [Screenshots & UI Walkthrough](#-screenshots--ui-walkthrough)
 - [Complete Pipeline](#-complete-pipeline)
   - [1. Dataset Collection](#1-dataset-collection)
   - [2. Data Preprocessing](#2-data-preprocessing)
@@ -74,6 +75,39 @@ graph TD
     F --> F5[Stage 4: Proliferative DR]
     F --> G[Interactive React Dashboard]
 ```
+
+---
+
+## 📸 Screenshots & UI Walkthrough
+
+### 1. Secure Access Portal
+The login screen features clinical guidelines and credential fields, securing access for authorized medical personnel.
+
+![Access Portal](./screenshots/login.jpeg)
+
+### 2. Clinical Dashboard (Awaiting Upload)
+Upon patient selection, the dashboard shows the last visit summary and awaits the fundus image upload to trigger the pipeline.
+
+![Awaiting Upload](./screenshots/dashboard_empty.jpeg)
+
+### 3. Real-Time Inference Pipeline
+As the image is uploaded, the progress panel dynamically updates to show which stage of the system is running:
+- **Preprocessing** (CLAHE & normalization)
+- **Feature Extraction** (GRESNET)
+- **Refinement** (APSO)
+- **Classification** (RSVM)
+
+![Inference Pipeline](./screenshots/pipeline_close_up.jpeg)
+
+### 4. Diagnostic Result: Severe NPDR
+Once classification completes, the system outputs the severity level along with model confidence (e.g., 96.4%) and specific detected features (e.g., microaneurysms, hard exudates).
+
+![Severe NPDR Result](./screenshots/dashboard_severe.jpeg)
+
+### 5. Diagnostic Result: Mild NPDR (Progression Tracking)
+When subsequent scans are run, the dashboard automatically compares the results side-by-side with previous visits to track condition progress (e.g., showing improvement from Moderate NPDR).
+
+![Mild NPDR Result](./screenshots/dashboard_mild.jpeg)
 
 ---
 
