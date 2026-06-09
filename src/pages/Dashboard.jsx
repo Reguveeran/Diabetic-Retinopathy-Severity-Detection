@@ -15,11 +15,12 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchPatientData = async () => {
       try {
-        // Mock fetch patient
-        const patients = JSON.parse(localStorage.getItem('mock_patients')) || [];
-        const data = patients.find(p => p.id.toString() === id);
-        
-        if (data) {
+        const token = localStorage.getItem('access_token');
+        const res = await fetch(`http://localhost:8000/api/patients/${id}/`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
           setPatient(data);
           if (data.visits && data.visits.length > 0) {
             // Visits are serialized, assume latest is first or last

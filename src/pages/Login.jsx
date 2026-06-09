@@ -12,10 +12,15 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Mock login to bypass missing backend
-      if (username === 'admin@hospital.org' && password === 'admin123') {
-        localStorage.setItem('access_token', 'mock_token');
-        localStorage.setItem('refresh_token', 'mock_refresh');
+      const response = await fetch('http://localhost:8000/api/auth/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('access_token', data.access);
+        localStorage.setItem('refresh_token', data.refresh);
         navigate('/patients');
       } else {
         setError('Invalid credentials. Check your demo account.');
